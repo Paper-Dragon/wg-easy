@@ -62,7 +62,7 @@ module.exports = class WireGuard {
         await Util.exec('wg-quick down wg0').catch(() => { });
         await Util.exec('wg-quick up wg0').catch(err => {
           if (err && err.message && err.message.includes('Cannot find device "wg0"')) {
-            throw new Error('WireGuard exited with the error: Cannot find device "wg0"\nThis usually means that your host\'s kernel does not support WireGuard!');
+            throw new Error('WireGuard 退出并出现错误：找不到设备“wg0”\n这通常意味着您的主机内核不支持 WireGuard！');
           }
 
           throw err;
